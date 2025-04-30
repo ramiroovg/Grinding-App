@@ -56,8 +56,6 @@ def crear_calculadora_cnc(tab):
         text="Calcular",
         command=lambda: calculara(entry_diametro, entry_rpm, entry_avance, entry_dientes, resultado_vc, resultado_f, calcular_velocidades_cnc)
     ).grid(row=4, column=0, columnspan=2, pady=10)
-
-
 # Aqui se define la función crear_calculadora_flujo que se encarga de crear una
 #  herramienta para hacer cálculos de flujo de pipa en la pestaña especificada.
 def crear_calculadora_flujo(tab):
@@ -98,13 +96,7 @@ def crear_calculadora_flujo(tab):
     resultado_vc.grid(row=5, column=0, columnspan=2, pady=5)
 
     #tk.Button(root, text="Calcular", command=calcular).grid(row=4, column=0, columnspan=2, pady=10)
-
-    
-
-
-
-
-def crear_herramienta_extra(tab):
+def crear_tiempos_produccion(tab):
     """Crea la calculadora en la pestaña especificada."""
     tk.Label(tab, text="Herramienta de cálculo en construcción").pack(pady=20)
     # Aquí puedes agregar más widgets y lógica para la calculadora
@@ -124,19 +116,22 @@ notebook = ttk.Notebook(root)
 notebook.pack(expand=True, fill="both")
 
 # Crear las pestañas
+tab_tiempos_produccion = ttk.Frame(notebook)
 tab_calculadora_cnc = ttk.Frame(notebook) #Crea la pestaña de calculadora CNC
 tab_flujo_pipa = ttk.Frame(notebook)#Crea la pestaña de flujo de pipa
-tab_herramienta_extra = ttk.Frame(notebook)
+
 
 # Agregar las pestañas al contenedor
+notebook.add(tab_tiempos_produccion, text="Tiempos de Producciòn") #Crea la pestaña de herramienta 
 notebook.add(tab_calculadora_cnc, text="Calculadora CNC") #Crea la pestaña de calculadora CNC
 notebook.add(tab_flujo_pipa, text="Calculadora de Flujo de Pipa") #Crea la Pestaña de flujo de pipa
-notebook.add(tab_herramienta_extra, text="Herramienta Extra") #Crea la pestaña de herramienta extra
+
 
 # Agregar contenido a las pestañas
+crear_tiempos_produccion(tab_tiempos_produccion)
 crear_calculadora_cnc(tab_calculadora_cnc)
 crear_calculadora_flujo(tab_flujo_pipa)
-crear_herramienta_extra(tab_herramienta_extra)
+
 
 
 
